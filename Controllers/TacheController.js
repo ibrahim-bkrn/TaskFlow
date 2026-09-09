@@ -1,73 +1,70 @@
-const { getAllTask, getTaskById, insertTask, deleteProjets, updateProjet } = require('../Models/tacheModel.js');
+const tacheModel = require("../Models/tacheModel.js");
 
-/*getAllTask((err, result) => {
-    if (err) {
-        console.error("Error: ", err);
-        return;
-    }
-
-    console.log("Nos tâches : ", result);
-})
-
-insertTask(
-    "Faire la vaissel",
-    "lorem sijdbf siduhj koSQDFOICSLDH UISDCHSD ijhbjksd osdj fncsljkd ojds v",
-    "2026-09-25 17:00:00",
-    "Moyen",
-    "à faire",
-    1,
-    1, 
-    (err)=>{
+function getAllTaches(req, res) {
+    tacheModel.getAllTask((err, results) => {
         if (err) {
-            console.error("Error: ", err);
-            return;
+            return console.log("impossible de recuperer les taches", err);
         }
-        console.log("La tache a bien été ajoutée");
-    }
-)
+        res.json(results);
+    });
+}
 
-
-getTaskById(6, (err, result)=>{
-    if (err) {
-        console.error("Error: ", err);
-        return;
-    }
-
-    console.log("La 4eme tache est : ", result);
-})
-
-deleteProjets(6, (err)=>{
-    if (err) {
-        console.error("Error: ", err);
-        return;
-    }
-
-    console.log("La tache a bien été supprimé");
-})
-
-let statut = "statut"
-
-updateProjet(
-    5,
-    "Statut",
-    "En cours", 
-    (err)=>{
+function getTacheById(req, res) {
+    const id = req.params.id;
+    tacheModel.getTaskById(id, (err, results) => {
         if (err) {
-            console.error("Error: ", err);
-            return;
+            return console.log("impossible de recuperer la tache", err);
         }
+        res.json(results);
+    });
+}
 
-        console.log("La tache a bien été modifié");
-    }
-)
+function createTache(req, res) {
+    const body = req.body;
 
-getTaskById(5, (err, result)=>{
-    if (err) {
-        console.error("Error: ", err);
-        return;
-    }
+    tacheModel.insertTask(
+        body.Titre,
+        body.Description,
+        body.dateLimite,
+        body.Priorite,
+        body.Statut,
+        body.id_projet,
+        body.id_user,
+        (err) => {
+            if (err) {
+                return console.log("impossible de creer la tache", err);
+            }
+            res.json({ message: "La tache a bien été ajoutée" });
+        }
+    );
+}
 
-    console.log("La 5eme tache est : ", result);
-})*/
+function updateTache(req, res) {
+    const id = req.params.id;
+    const body = req.body;
 
+    tacheModel.updateProjet(id, body.champ, body.valeur, (err) => {
+        if (err) {
+            return console.log("impossible d'update la tache", err);
+        }
+        res.json({ message: "La tache a bien été modifiée" });
+    });
+}
 
+function deleteTache(req, res) {
+    const id = req.params.id;
+    tacheModel.deleteProjets(id, (err) => {
+        if (err) {
+            return console.log("impossible de supprimer la tache", err);
+        }
+        res.json({ message: "La tache a bien été supprimée" });
+    });
+}
+
+module.exports = {
+    getAllTaches,
+    getTacheById,
+    createTache,
+    updateTache,
+    deleteTache
+};
