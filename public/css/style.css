@@ -143,6 +143,17 @@ button,
     cursor: pointer;
 }
 
+.delete-btn {
+    margin-top: 10px;
+    margin-left: 10px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
 .connexion {
     max-width: 450px;
 }
