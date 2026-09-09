@@ -3,7 +3,8 @@ const app = express();
 
 app.use(express.json());
 const db = require('./Models/bdd.js')
-const projetController = require('./Controllers/projetController.js');
+const projetController = require('./Controllers/projetController.js')
+const tacheController = require('./Controllers/TacheController.js')
 
 app.use(express.static(__dirname + '/Views'));
 app.use('/public', express.static(__dirname + '/public'));
@@ -23,3 +24,9 @@ app.get("/projets/:id", projetController.getProjectsbyid);
 app.post("/projets", projetController.createProjets);
 app.put("/projets/:id", projetController.updateProjet);
 app.delete("/projets/:id", projetController.deleteProjets);
+
+app.get("/taches", tacheController.getAllTaches);
+app.get("/taches/:id", tacheController.getTacheById);
+app.post("/taches", tacheController.createTache);
+app.put("/taches/:id", tacheController.updateTache);
+app.delete("/taches/:id", tacheController.deleteTache);

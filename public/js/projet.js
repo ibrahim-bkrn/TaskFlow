@@ -16,6 +16,7 @@ function loadProjects() {
           <small>${projet.dateCreation || 'Date inconnue'}</small>
           <p>Statut : ${projet.statut || 'Non défini'}</p>
           <button class="edit-btn" data-id="${projet.id_projet}">Modifier</button>
+          <button class="delete-btn" data-id="${projet.id_projet}">Supprimer</button>
         </div>
       `).join('');
     })
@@ -45,6 +46,28 @@ document.addEventListener('click', function(event) {
       .catch(error => {
         console.error(error);
         alert('Erreur lors du chargement du projet');
+      });
+  }
+
+  if (event.target.classList.contains('delete-btn')) {
+    const id = event.target.dataset.id;
+    const projectName = event.target.closest('.project-item')?.querySelector('h3')?.textContent || 'ce projet';
+
+    const confirmDelete = window.confirm('Voulez-vous vraiment supprimer ' + projectName + ' ?');
+
+    if (!confirmDelete) {
+      return;
+    }
+
+    fetch('/projets/' + id, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        loadProjects();
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Erreur lors de la suppression');
       });
   }
 });
