@@ -1,10 +1,8 @@
 const express = require('express');
-const projetController = require('./Controllers/projetController');
-
 const app = express();
 
 app.use(express.json());
-const db = require('./Models/bdd')
+const db = require('./Models/bdd.js')
 
 
 const PORT = process.env.PORT || 3300;
@@ -16,19 +14,3 @@ app.get('/', (req, res) => {
     res.send('Bienvenue sur notre projet')
 })
 
-const { getAllTask } = require('./Models/tacheModel.js');
-
-getAllTask((err, result) => {
-    if (err) {
-        console.error("Error: ", err);
-        return;
-    }
-
-    console.log("Nos tâches : ", result);
-})
-
-app.get('/projets', projetController.getAllProjects);
-app.get('/projets/:id', projetController.getProjectsbyid);
-app.post('/projets', projetController.createProjets);
-app.put('/projets/:id', projetController.updateProjet);
-app.delete('/projets/:id', projetController.deleteProjets);

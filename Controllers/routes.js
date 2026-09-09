@@ -8,3 +8,5 @@ app.get("/projets/:id", projetController.getProjectsbyid);
 app.post("/projets", projetController.createProjets);
 app.put("/projets/:id", projetController.updateProjet);
 app.delete("/projets/:id", projetController.deleteProjets);
+
+// Taches

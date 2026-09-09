@@ -43,7 +43,7 @@ deleteProjets(6, (err)=>{
     }
 
     console.log("La tache a bien été supprimé");
-})*/
+})
 
 let statut = "statut"
 
@@ -68,6 +68,6 @@ getTaskById(5, (err, result)=>{
     }
 
     console.log("La 5eme tache est : ", result);
-})
+})*/
 
 
