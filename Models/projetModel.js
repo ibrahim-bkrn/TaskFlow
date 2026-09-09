@@ -35,8 +35,8 @@ function deleteProjets(id,callback){
 function updateProjet(id,Titre,desc_,dateCreation,statut, callback){
     const sql = "UPDATE projet set Titre = ?,desc_ = ?,dateCreation = ?,statut = ? where id_projet = ? "
 
-    db.query(sql,[Titre,desc_,dateCreation,statut,id],(err,results) =>{
-        callback(err,results);
+    db.query(sql,[Titre,desc_,dateCreation,statut,id],(err) =>{
+        callback(err);
     })
 }
 
