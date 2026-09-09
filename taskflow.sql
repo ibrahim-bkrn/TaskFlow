@@ -134,3 +134,31 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+/* INSERT A TESTER */
+
+-- Utilisateurs
+INSERT INTO user_ (nom, email, mdp)
+VALUES ('Ibrahim', 'ibrahim@example.com', 'motdepassehash1');
+
+INSERT INTO user_ (nom, email, mdp)
+VALUES ('Sarah', 'sarah@example.com', 'motdepassehash2');
+
+-- Projets
+INSERT INTO Projets (Titre, desc_, dateCreation, statut, id_user)
+VALUES ('Projet TaskFlow', 'Application de gestion de tâches', NOW(), 'En cours', 1);
+
+INSERT INTO Projets (Titre, desc_, dateCreation, statut, id_user)
+VALUES ('Refonte site web', 'Refonte du site vitrine de l''entreprise', NOW(), 'En attente', 2);
+
+-- Tâches
+INSERT INTO Taches (Titre, Description, dateLimite, Priorite, Statut, id_projet, id_user)
+VALUES ('Créer la maquette', 'Réaliser la maquette Figma de l''application', '2026-09-20 18:00:00', 'Haute', 'En cours', 1, 1);
+
+INSERT INTO Taches (Titre, Description, dateLimite, Priorite, Statut, id_projet, id_user)
+VALUES ('Configurer la base de données', 'Créer les tables et les relations', '2026-09-15 12:00:00', 'Moyenne', 'Terminé', 1, 1);
+
+INSERT INTO Taches (Titre, Description, dateLimite, Priorite, Statut, id_projet, id_user)
+VALUES ('Rédiger le cahier des charges', 'Lister les besoins du client', '2026-09-25 17:00:00', 'Haute', 'À faire', 2, 2);
