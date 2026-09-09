@@ -6,6 +6,9 @@ const app = express();
 app.use(express.json());
 const db = require('./Models/bdd')
 
+app.use(express.static(__dirname + '/Views'));
+app.use('/public', express.static(__dirname + '/public'));
+
 
 const PORT = process.env.PORT || 3300;
 app.listen(PORT, () => {
