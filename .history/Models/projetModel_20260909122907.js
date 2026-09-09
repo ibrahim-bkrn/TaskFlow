@@ -29,6 +29,5 @@ function createProjets(Titre,desc_,dateCreation,statut, callback){
 
 module.exports = {
     getAllProjects,
-    getProjectsbyid,
-    createProjets
+    getProjectsbyid
 };

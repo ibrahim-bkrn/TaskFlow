@@ -16,19 +16,7 @@ function getProjectsbyid(id,callback){
     });
 }
 
-function createProjets(Titre,desc_,dateCreation,statut, callback){
-    const sql = "INSERT INTO projets (Titre, desc_, dateCreation, statut) VALUES (?,?,?,?)";
-
-    db.query(sql,[Titre,desc_,dateCreation,statut],(err,results) => {
-        callback(err,results);
-    });
-}
-
-
-
 
 module.exports = {
-    getAllProjects,
-    getProjectsbyid,
-    createProjets
+    getAllProjects
 };
