@@ -21,14 +21,38 @@
         <a class="button" href="projet.html">Ajouter un projet</a>
         <section>
             <h3>Liste des projets</h3>
-
-            <div id="projets-list">
-                
-            </div>
+            <div id="projets-list"></div>
         </section>
     </main>
-</body>    
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Modifier le projet</h3>
+            <form id="editProjectForm">
+                <input type="hidden" id="projectId">
+
+                <label for="editTitre">Titre</label>
+                <input type="text" id="editTitre" required>
+
+                <label for="editDesc">Description</label>
+                <textarea id="editDesc"></textarea>
+
+                <label for="editDate">Date de création</label>
+                <input type="date" id="editDate">
+
+                <label for="editStatut">Statut</label>
+                <select id="editStatut">
+                    <option value="en cours">En cours</option>
+                    <option value="termine">Terminé</option>
+                    <option value="a faire">À faire</option>
+                </select>
+
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+</body>
 
 <script src="../public/js/projet.js"></script>
-
 </html>
