@@ -1,4 +1,4 @@
-const db = require('../Models/bdd');
+const db = require('../config/db');
 
 function getAllProjects(callback) {
     const sql = "SELECT * FROM projet";
