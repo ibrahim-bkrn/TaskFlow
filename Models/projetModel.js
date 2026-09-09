@@ -25,10 +25,17 @@ function createProjets(Titre,desc_,dateCreation,statut,id_user,callback){
 }
 
 function deleteProjets(id,callback){
-    const sql = "DELETE FROM projets where id_projet = ?";
+    const deleteTachesSql = "DELETE FROM Taches where id_projet = ?";
+    const deleteProjetSql = "DELETE FROM projets where id_projet = ?";
 
-    db.query(sql,[id],(err,resultat) =>{
-        callback(err,resultat);
+    db.query(deleteTachesSql,[id],(err) =>{
+        if (err) {
+            return callback(err);
+        }
+
+        db.query(deleteProjetSql,[id],(err,resultat) =>{
+            callback(err,resultat);
+        });
     });
 }
 

@@ -47,7 +47,8 @@ function deleteProjets(req,res){
     const id = req.params.id;
     projetModel.deleteProjets(id, (err,results)=>{
         if(err){
-            return console.log("impossible de supprimer le projet ")
+            console.log("impossible de supprimer le projet ", err);
+            return res.status(500).json({ message: "impossible de supprimer le projet" });
         }
         res.json(results);
     });

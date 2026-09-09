@@ -12,21 +12,91 @@
         <nav>
             <a href="accueil.html">Accueil</a>
             <a class="active" href="projets.html">Projets</a>
-            <a href="taches.html">Tâches</a>
-            <a href="connexion.html">Connexion</a>
         </nav>
     </header>
     <main>
-        <h2>Projet</h2>
-        <form action="#" method="post">
-            <label for="nom-projet">Nom du projet</label>
-            <input id="nom-projet" name="nom-projet" type="text" required>
+        <h2 id="projet-titre">Projet</h2>
+        <p id="projet-desc"></p>
 
-            <label for="description-projet">Description</label>
-            <textarea id="description-projet" name="description-projet"></textarea>
+        <button type="button" class="button" id="openAddTaskModal">Ajouter une tâche</button>
 
-            <button type="submit">Enregistrer</button>
-        </form>
+        <section>
+            <h3>Tâches</h3>
+            <div id="taches-list"></div>
+        </section>
     </main>
+
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Ajouter une tâche</h3>
+            <form id="addTaskForm">
+                <label for="addTitre">Titre</label>
+                <input type="text" id="addTitre" required>
+
+                <label for="addDescription">Description</label>
+                <textarea id="addDescription"></textarea>
+
+                <label for="addDateLimite">Date limite</label>
+                <input type="datetime-local" id="addDateLimite">
+
+                <label for="addPriorite">Priorité</label>
+                <select id="addPriorite">
+                    <option value="Faible">Faible</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Elevé">Élevé</option>
+                </select>
+
+                <label for="addStatut">Statut</label>
+                <select id="addStatut">
+                    <option value="à faire">À faire</option>
+                    <option value="en cours">En cours</option>
+                    <option value="terminé">Terminé</option>
+                </select>
+
+                <label for="addIdUser">Id utilisateur</label>
+                <input type="number" id="addIdUser" required>
+
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Modifier la tâche</h3>
+            <form id="editTaskForm">
+                <input type="hidden" id="taskId">
+
+                <label for="editTitre">Titre</label>
+                <input type="text" id="editTitre" required>
+
+                <label for="editDescription">Description</label>
+                <textarea id="editDescription"></textarea>
+
+                <label for="editDateLimite">Date limite</label>
+                <input type="datetime-local" id="editDateLimite">
+
+                <label for="editPriorite">Priorité</label>
+                <select id="editPriorite">
+                    <option value="Faible">Faible</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Elevé">Élevé</option>
+                </select>
+
+                <label for="editStatut">Statut</label>
+                <select id="editStatut">
+                    <option value="à faire">À faire</option>
+                    <option value="en cours">En cours</option>
+                    <option value="terminé">Terminé</option>
+                </select>
+
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+    </div>
 </body>
+
+<script src="../public/js/projetDetail.js"></script>
 </html>

@@ -21,7 +21,7 @@ function insertTask (Titre,Description,dateLimite,Priorite,Statut,id_projet,id_u
 
     db.query(
         request,
-        [Titre,Description,dateLimite,Priorite,Statut,id_projet,id_user, callback],
+        [Titre,Description,dateLimite,Priorite,Statut,id_projet,id_user],
         (err)=>{callback(err)}
     )
 }

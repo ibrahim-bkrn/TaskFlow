@@ -16,7 +16,7 @@ app.listen(PORT, () => {
 }); 
 
 app.get('/', (req, res) => {
-    res.send('Bienvenue sur notre projet')
+    res.sendFile(__dirname + '/Views/accueil.html')
 })
 
 app.get("/projets", projetController.getAllProjects);
