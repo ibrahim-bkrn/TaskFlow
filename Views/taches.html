@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Tâches</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>TaskFlow</h1>
+        <nav>
+            <a href="accueil.html">Accueil</a>
+            <a href="projets.html">Projets</a>
+            <a class="active" href="taches.html">Tâches</a>
+            <a href="connexion.html">Connexion</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Tâches</h2>
+        <section>
+            <h3>Liste des tâches</h3>
+            <p>Aucune tâche à afficher.</p>
+        </section>
+
+        <h3>Ajouter ou modifier une tâche</h3>
+        <form action="#" method="post">
+            <label for="nom-tache">Nom de la tâche</label>
+            <input id="nom-tache" name="nom-tache" type="text" required>
+
+            <label for="description-tache">Description</label>
+            <textarea id="description-tache" name="description-tache"></textarea>
+
+            <label for="date-tache">Date limite</label>
+            <input id="date-tache" name="date-tache" type="date">
+
+            <button type="submit">Enregistrer</button>
+        </form>
+    </main>
+</body>
+</html>
