@@ -1,4 +1,4 @@
-const db = require('../Models/bdd');
+const db = require('../config/db');
 
 function getAllProjects(callback) {
     const sql = "SELECT * FROM projet";
@@ -33,11 +33,7 @@ function deleteProjets(id,callback){
 }
 
 function updateProjet(id,Titre,desc_,dateCreation,statut, callback){
-    const sql = "UPDATE projet set Titre = ?,desc_ = ?,dateCreation = ?,statut = ? where id_projet = ? "
-
-    db.query(sql,[Titre,desc_,dateCreation,statut,id],(err,results) =>{
-        callback(err,results);
-    })
+    const sql = "UPDATE FROM projet set Titre = ?,desc_ = ?,dateCreation = ?,statut = ? where id_projet = ? "
 }
 
 
@@ -45,7 +41,5 @@ function updateProjet(id,Titre,desc_,dateCreation,statut, callback){
 module.exports = {
     getAllProjects,
     getProjectsbyid,
-    createProjets,
-    deleteProjets,
-    updateProjet
+    createProjets
 };

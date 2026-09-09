@@ -1,4 +1,4 @@
-const db = require('../Models/bdd');
+const db = require('../config/db');
 
 function getAllProjects(callback) {
     const sql = "SELECT * FROM projet";
@@ -45,7 +45,5 @@ function updateProjet(id,Titre,desc_,dateCreation,statut, callback){
 module.exports = {
     getAllProjects,
     getProjectsbyid,
-    createProjets,
-    deleteProjets,
-    updateProjet
+    createProjets
 };
